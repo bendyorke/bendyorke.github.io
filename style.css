@@ -2,6 +2,7 @@ div.wrapper {
   line-height: 1.25;
   font-family: sans-serif;
   margin-left: 25%;
+  font-weight: 200;
 }
 #index div.wrapper {
   padding-top: 150px;
@@ -22,4 +23,12 @@ a:visited {
 }
 a:hover, a:visited:hover {
   color: navy;
+}
+i {
+  font-size: small;
+  color: hsl(0,0%,50%);
+}
+img {
+  width: 150px;
+  height: 150px;
 }
