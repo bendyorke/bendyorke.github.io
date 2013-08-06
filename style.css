@@ -1,13 +1,12 @@
 div.wrapper {
-  width: 50%;
-  text-align: right;
   padding-top: 150px;
   line-height: 1.25;
   font-family: sans-serif;
+  margin-left: 25%;
 }
-p {
-  width: 50%;
-  margin-left: 50%;
+#index div.wrapper {
+  width: 25%;
+  text-align: right;
 }
 a {
   color: darkorange;
