@@ -1,12 +1,16 @@
 div.wrapper {
-  padding-top: 150px;
   line-height: 1.25;
   font-family: sans-serif;
   margin-left: 25%;
 }
 #index div.wrapper {
+  padding-top: 150px;
   width: 25%;
   text-align: right;
+}
+#resume div.wrapper {
+  padding-top: 50px;
+  width: 50%;
 }
 a {
   color: darkorange;
