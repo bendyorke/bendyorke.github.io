@@ -13,6 +13,18 @@ div.wrapper {
   padding-top: 50px;
   width: 50%;
 }
+ul {
+  padding: 0;
+}
+li:before {
+  content: "-  ";
+}
+li {
+  color:hsl(0,0%,20%);
+  padding: 5px 0;
+  text-indent: -8px;
+  list-style: none;  
+}
 a {
   color: darkorange;
   text-decoration: none;
@@ -28,7 +40,18 @@ i {
   font-size: small;
   color: hsl(0,0%,50%);
 }
-img {
+b {
+  font-weight: 400;
+}
+#index img {
   width: 150px;
   height: 150px;
+}
+#resume img {
+  width: 100px;
+  height: 100px;
+  float: left;
+  clear: both;
+  border: 1px solid black;
+  margin: 10px 10px 10px 0;
 }
