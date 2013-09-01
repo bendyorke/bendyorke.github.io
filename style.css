@@ -4,6 +4,9 @@ div.wrapper {
   margin-left: 25%;
   font-weight: 200;
 }
+#resume div.wrapper {
+  min-width: 400px;
+}
 #index div.wrapper {
   padding-top: 150px;
   width: 25%;
