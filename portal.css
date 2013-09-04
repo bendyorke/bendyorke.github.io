@@ -26,9 +26,10 @@ div.circle {
   background: #fff;
   float: left;
   position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 300px 0 0 15%;
+  width: 30%;
+  padding: 15%;
+  box-sizing: border-box;
+  margin: 180px 0 0 15%;
   border-radius: 100%;
   overflow: hidden;
   transform: translateZ(0);
@@ -42,10 +43,10 @@ div.circle:after {
   position: absolute;
   top: 0;
   left: 0;
-  width: inherit;
-  height: inherit;
-  box-shadow: inset 0 200px 0 white,
-              inset 0 -200px  0 white;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 500px 0 white,
+              inset 0 -500px 0 white;
   transition: box-shadow 0.75s;
   -moz-transition: box-shadow 0.75s;
   -webkit-transition: box-shadow 0.75s;
@@ -74,7 +75,9 @@ div.circle:hover:after {
   -webkit-animation: spin_counterclockwise 13s linear infinite;
 }
 .portal {
+  position: absolute;
+  left: 20%;
+  top: 20%;
   width: 60%;
   height: 60%;
-  margin: 20% 0 0 20%;
 }
