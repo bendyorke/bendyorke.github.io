@@ -8,7 +8,9 @@ div.wrapper {
   min-width: 400px;
 }
 #index div.wrapper {
+  float: left;
   padding-top: 150px;
+  min-width: 175px;
   width: 25%;
   text-align: right;
 }
@@ -54,7 +56,7 @@ i {
 b {
   font-weight: 400;
 }
-#index img {
+#index .wrapper img {
   width: 150px;
   height: 150px;
 }
