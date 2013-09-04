@@ -26,11 +26,14 @@ div.circle {
   background: #fff;
   float: left;
   position: relative;
-  width: 30%;
-  padding: 15%;
+  width: 16%;
+  padding: 8%;
   box-sizing: border-box;
-  margin: 180px 0 0 15%;
+  margin: 280px 0 0 15%;
   border-radius: 100%;
+  -webkit-box-sizing: border-box;
+  max-width: 200px;
+  max-height: 200px;
   overflow: hidden;
   transform: translateZ(0);
   -moz-transform: translateZ(0);
