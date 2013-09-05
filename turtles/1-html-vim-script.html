@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Vim Scripting</title>
+  </head>
+  <body>
+    <br><br><br><br>
+
+    Today I played around a bit with vim scripts! I figured they were like a more applicable, uglier cousin of my favorite (bash scripts) and boy was I right about one of those two facts.  Viml was not designed to be the prettiest or most usable language around.
+    <br><br>
+
+    I did however learn a lot, and it was a lot of fun.  It was escpecially fun being entirely green to a language again, and even more fun getting some results by the end of the day.  I used my favorite regex statements (excerpt: return substitute(elementWithId, '\\\([\^\$\.\*\\\/\~\[\]\)', '\1', 'g') ).
+  <br><br>
+
+  A sample of what the code does: While (in vim) in insert mode...
+  <br><br>
+
+  div#sea-turtle.green-sea-turtle&ltLeader&gt&ltTab&gt
+  <br>
+  becomes: &ltdiv id="sea-turtle" class="green-sea-turtle"&gt&lt/div&gt 
+  <br><br>
+
+  Similarly, div#sea-turtle.green-sea-turtle&ltLeader&gt&ltReturn&gt
+  <br>
+  becomes:
+  <br> 
+  &ltdiv id="sea-turtle" class="green-sea-turtle"&gt
+  <br><br>
+  &lt/div&gt 
+  
+  <br><br><br>
+
+  With the cursors placed in the right place!  Woo! Check out the full source code <a href=https://github.com/bendyorke/vim-scripts">here</a>!
+  </body>
+</html>
