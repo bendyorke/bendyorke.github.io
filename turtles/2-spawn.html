@@ -153,6 +153,15 @@
   
 <body>
   <div class="wrapper">
+    <h1>CSS Transition Keyboard Masher</h1>
+    Try different letters in different combinations to add transitions to the spawn in the center<br>
+    Some of my favorite keybindings (hold down the following letters):<br>
+    ga<br>
+    ql<br>
+    yq<br>
+    oesq<br>
+    qylr<br>
+    oa(then try adding other letters like s and e)
     <div id="0" class="spawn default"></div>        
   </div> 
 
@@ -172,7 +181,6 @@
   Spawn.prototype.addClass = function(cssClass) {
     var $this = this.findById()
     $this.classList.add(cssClass)
-    console.log($this)
     return $this
   }
   Spawn.prototype.removeClass = function(cssClass) {
@@ -191,7 +199,6 @@
   Spawn.prototype.append = function() {
     var $wrapper = document.getElementsByClassName('wrapper')[0]
     var $spawn = this.createHTML()
-    console.log($spawn)
     $wrapper.appendChild($spawn)
   } 
 
@@ -221,7 +228,6 @@
     }
     for (var i=0; i < spawns.length; i++) {
       spawns[i][action + 'Animation'](key)
-      console.log(spawns[i])
     }
   }
 
