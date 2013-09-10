@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+<head>
+<title>Spawn</title>
+<style>
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+.spawn {
+  background: black;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+}
+.spawn:before,
+.spawn:after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 100%;
+  content: "";
+  transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+}
+.default {
+  left: 48%;
+  top: 40%;
+}
+.A {
+  background: none;
+}
+.A:before {
+  -webkit-transform: rotate(120deg);
+  box-shadow: inset -70px 0 0 rgba(255,0,0,0.4),
+              inset 70px 0 0 rgba(0,255,0,0.4),
+              inset 0 -70px 0 rgba(0,0,255,0.4),
+              inset 0 70px 0 rgba(255,255,0,0.4);
+}
+.A {
+  -webkit-transform: rotate(360deg);
+  box-shadow: inset -60px 0 0 rgba(255,0,0,0.4),
+              inset 60px 0 0 rgba(0,255,0,0.4),
+              inset 0 -60px 0 rgba(0,0,255,0.4),
+              inset 0 60px 0 rgba(255,255,0,0.4);
+}
+.A:after {
+  -webkit-transform: rotate(240deg);
+  box-shadow: inset -50px 0 0 rgba(255,0,0,0.4),
+              inset 50px 0 0 rgba(0,255,0,0.4),
+              inset 0 -50px 0 rgba(0,0,255,0.4),
+              inset 0 50px 0 rgba(255,255,0,0.4);
+}
+.B, .B:before, .B:after {
+  background: none;
+  -webkit-appearance: button;
+}
+.C, .C:before, .C:after { background: none; }
+.D { border: 2px solid red }
+.D:before { border: 2px solid green }
+.D:after { border: 2px solid blue }
+.E {
+  background: none;
+  box-shadow: inset 0 70px 0 rgba(255,0,0,0.5),
+              inset 0 -70px 0 rgba(255,0,0,0.5);
+}
+.E:before {
+  background: none;
+  box-shadow: inset 0 70px 0 rgba(0,255,0,0.5),
+              inset 0 -70px 0 rgba(0,255,0,0.5);
+}
+.E:after {
+  background: none;
+  box-shadow: inset 0 70px 0 rgba(0,0,255,0.5),
+              inset 0 -70px 0 rgba(0,0,255,0.5);
+}
+.F {
+  -webkit-box-sizing: border-box;
+  -webkit-box-reflect: left;
+}
+.F:before {
+  -webkit-box-sizing: border-box;
+  -webkit-box-reflect: above;
+}
+.F:after {
+  -webkit-box-sizing: border-box;
+  -webkit-box-reflect: below;
+}
+.G {
+  width: 200px;
+  height: 200px;
+  left: calc(50% - 100px);
+  top: calc(40% - 100px);
+}
+.H, .H:before, .H:after {
+  border-radius: 25%;
+}
+.L {
+  left: 25%;
+  height: 1px;
+  width: 50%;
+}
+.O {
+  left: calc(50% - 175px);
+  top: calc(40% - 100px);
+  width: 350px;
+  height: 200px;
+}
+@-webkit-keyframes rotate {
+  from  { -webkit-transform: rotate(0deg)    }
+  to    { -webkit-transform: rotate(360deg)  }
+}
+.Q { -webkit-transform: rotate(360deg) }
+.Q:before { -webkit-transform: rotate(240deg) }
+.Q:after { -webkit-transform: rotate(-240deg) }
+.R {
+  -webkit-animation: rotate 1s linear infinite;
+}
+.S, .S:before, .S:after {
+  border-radius: 0;
+}
+.U:before { box-shadow: inset -70px 0 0 rgba(255,0,0,0.5); }
+.U:after { box-shadow: inset -70px 0 0 rgba(0,255,0,0.5); }
+.U { box-shadow: inset -70px 0 0 rgba(0,0,255,0.5); }
+.I:before { box-shadow: inset 0 0 70px rgba(255,0,0,0.5); }
+.I:after { box-shadow: inset 0 0 70px rgba(0,255,0,0.5); }
+.I { box-shadow: inset 0 0 70px rgba(0,0,255,0.5); }
+.T, .T:before, .T:after {
+  box-shadow: inset 35px 52px 0 rgb(255,0,0),
+              inset -35px 52px 0 rgb(0,255,0),
+              inset 0 -70px 0 rgb(0,0,255)
+}
+.X {
+  left: 45%;
+  height: 5px;
+  width: 10%;
+  border-radius: 0%;
+}
+.Y:before { box-shadow: -200px -200px 0 rgba(255,0,0,0.5); }
+.Y:after { box-shadow: -200px -200px 0 rgba(0,255,0,0.5); }
+.Y { box-shadow: -200px -200px 0 rgba(0,0,255,0.5); }
+.X:after { 
+  border-radius: 0%;
+  -webkit-transform: rotate(90deg);
+}
+</style>
+</head> 
+  
+<body>
+  <div class="wrapper">
+    <h1>CSS Transition Keyboard Masher/Spawner!</h1>
+    Try different letters in different combinations to add transitions to the spawn in the center<br>
+    Space to add a new spawn<br>
+    Some of my favorite keybindings (hold down the following letters):<br>
+    ga<br>
+    ql<br>
+    yq<br>
+    oesq<br>
+    qylr<br>
+    oa(then try adding other letters like s and e)
+    <div id="0" class="spawn default"></div>        
+  </div> 
+
+<script>
+  var Spawn = function(id) {
+    this.id=id
+    this.html=this.createHTML()
+  }
+  Spawn.prototype.startAnimation = function(key) {
+    console.log(this)
+    this.addClass(key)
+  }
+  Spawn.prototype.stopAnimation = function(key) {
+    this.removeClass(key)
+  }
+  Spawn.prototype.findById = function() {
+    return document.getElementById(this.id)
+  }
+  Spawn.prototype.addClass = function(cssClass) {
+    var $this = this.findById()
+    $this.classList.add(cssClass)
+    return $this
+  }
+  Spawn.prototype.removeClass = function(cssClass) {
+    var $this = this.findById()
+    $this.classList.remove(cssClass)
+    return $this
+  }
+  Spawn.prototype.createHTML = function() {
+    var $spawn = document.createElement('div')
+    $spawn.id = this.id
+    $spawn.classList.add("spawn")
+    $spawn.style.left=Math.random()*100+'%'
+    $spawn.style.top=Math.random()*100+'%'
+    return $spawn
+  }
+  Spawn.prototype.append = function() {
+    $wrapper.appendChild(this.html)
+  } 
+
+  var counter = 1
+  function createSpawn(action) {
+    if (action === "start") return
+    var spaceSpawn = new Spawn(counter++)
+    spawns.push(spaceSpawn)
+    spaceSpawn.append()
+  }
+  var spawn = new Spawn(0)
+  var spawns = [spawn]
+
+  var pressed = []
+  function proccessKey(e) {
+    var action = e.type === "keydown" ? "start" : "stop"
+    var keyCode = e.charCode || e.keyCode 
+    if (keyCode === 32) { 
+      createSpawn(action)
+      return
+    }
+    var key = String.fromCharCode(keyCode)
+    dispatchKey(action, key)
+  }
+  function dispatchKey(action, key) {
+    if ( action === "start" && pressed.indexOf(key) !== -1 ) return
+    handleQueue(action, key)
+    for (var i=0; i < spawns.length; i++) {
+      spawns[i][action + 'Animation'](key)
+    }
+  }
+  function handleQueue(action, key) {
+    if ( action === "start" ) {
+      pressed.push(key)
+    } else {
+      pressed.splice(pressed.indexOf(key), 1)
+    }
+  }
+
+  var $wrapper = document.getElementsByClassName('wrapper')[0]
+  var wrapperHeight = window.innerHeight
+  $wrapper.setAttribute("style", "height:" + wrapperHeight + "px")
+
+  document.onkeydown=proccessKey
+  document.onkeyup=proccessKey
+</script>
+</body>
+</html>
