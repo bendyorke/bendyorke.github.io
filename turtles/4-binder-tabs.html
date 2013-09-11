@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <title>Binder Tabs</title>
+</head>
+<style>
+body {
+  background: black;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.tab {
+  position: fixed;
+  color: white;
+  box-sizing: border-box;
+  padding: 30px;
+  height: 100%;
+  width: 300px;
+  left: -300px;
+  top: 0 !important;
+  z-index: 0;
+  transition: all .4s ease;
+}
+.tab:before {
+  position: fixed;
+  background: none !important;
+  left: 0;
+  width: 50px;
+  height: 25%;
+  content: "";
+  z-index: 100;
+  box-sizing: border-box;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 35px solid;
+  transition: all .4s ease;
+}
+.tab:hover {
+  left: 0;
+}
+.tab:hover:before {
+  left: 300px;
+}
+.tab:hover ~ .tab:before {
+  left: -20px;
+}
+.tab-name, .tab-name:before {
+  background: #0c1e00;
+  border-left-color: #0c1e00;
+  top: 0;
+}
+.tab-location, .tab-location:before {
+  background: #4e6726;
+  border-left-color: #4e6726;
+  top: 25%;
+}
+.tab-price, .tab-price:before {
+  background: #97b158;
+  border-left-color: #97b158;
+  top: 50%;
+}
+.tab-color, .tab-color:before {
+  background: #d5e698;
+  border-left-color: #d5e698;
+  top: 75%;
+}
+</style>
+<body>
+  <div id="wrapper">
+    <div class="tab tab-name">
+      <h2>What?</h2>
+      This project set out to try to make a menu style that roughly mimiced binder dividers.i<br><br>
+      This could be applied in two ways:<br><br>
+      - It was originally concieved as a way to narrow down a search.  One tab could have a location icon, one could have a price icon, etc<br><br>
+      - It ended up being clean and simple enough to actually be used as a nav bar<br><br>
+    </div>  
+    <div class="tab tab-location">
+      <h2>How?</h2>
+      This demo is almost entirely CSS.  In fact, I just hav a div surrounding each section of text - a total of 4 - and the rest is done in css.  It uses some fancy borders for the trapezoids, some pseudo elements for the tabs, and the beloeved css transitions for the animation.  No javascript require (except to set the height, but thats just a little addition of user expirience #ocd)
+    </div>  
+    <div class="tab tab-price">
+      <h2>Why?</h2>
+      This project was part of a (design-oriented) hack-a-day projects.  Each day I decide to make something - sometimes I'll base it off of something else on the web, but I always make sure to put my own unique spin on it.  This project is the 4th (0 indexed) in the series.<br><br>
+      Although it's terrible practice, I make all of the application one-page.  In the scary way.  Just one html file.  No dependancies, style in the header javascript in the body - pretty much the oppisite of what you find anywhere on the web.  It's terrible practice but great fun, and more than educational.
+    </div>  
+    <div class="tab tab-color">
+      <h2>When?</h2>
+      Like I said, everyday!  Well, weekdays that is.  Although I love to code, almost more than anything, I use my weekends to get outside - read, hike, swim, explore, adventure, travel, etc.  It helps me recharge each week and keeps me sane.  
+
+      So yes, that means something new tomorrow.  I'm thinking of something un<i>paralleled</i> - check back in tomorrow to see what's new!
+    </div>  
+  </div>
+<script>
+  var $wrapper = document.getElementById('wrapper')
+  $wrapper.setAttribute('style', 'height:' + window.innerHeight + 'px')
+</script>
+</body>
+</html>
