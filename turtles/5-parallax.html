@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+  <title>Turtles</title>
+</head>
+<style>
+.background {
+  background: url('5-parallax/backdrop.png');
+  width: 100%;
+  height: 4000px;
+  position: fixed;
+  left: 0;
+  top: 0;
+} 
+.block {
+  position: fixed;
+  color: white;
+  width: 50%;
+  box-sizing: border-box;
+  padding-top: 20%;
+  padding-left: 15%;
+  font-size: x-large;
+  left: 0;
+}
+</style>
+<body>
+<div class="background"></div>  
+
+<div class="zeroith block">
+  You've found my secret page-a-day blog! Or maybe I've published it.  Who knows.  What this is is every weekday, I build a webpage.  Something I want to do that I can do in just one HTML file.  You heard me right - one, gruesomely long HTML file with a style tag and script tag included - no dependencies (that means no jQuery either).  The horrors.  But it challenges me a lot to keep my ideas simple - not necessarily easy, but simple.
+</div>
+
+<div class="first block">
+  This is day 1 of 3 of parallax.  What is parallax? Think Super Mario Bros - how the mountains in the back move slower than the main content.  It gives the game a false sense of depth.  That's parallax.
+</div>
+
+<div class="second block">
+  Today was all about how to get parallax working.  I'm not following any tutorials, or using any jquery - just pur, inline javascript (oh the terrible things I do for education). It was about being able to dynamically build the page, based on the users viewport.  Go ahead, make your window smaller, and refresh.  Just don't look at the code yet... any refactoring or OOJS doesn't come till tomorrow ;)
+</div>
+
+<div class="third block">
+  Today I got the basics down.  It parallaxes.  Quick and dirty but I'm out of time and sticking to a one a day release cycle.  Hit MVP.  Got my feature set working.  Tomorrow I am going to refactor.  Beautify the code, make it object oriented, and allow for there to be even better content.  Day three, Friday, I'll work on a nav bar, having that parralax with the page to have some big-buttony-awesomeness up top but subtle-awesomeness on the rest of the page.
+</div>
+
+<div class="fourth block">
+  Due to internet problems, I completely forgot to publish this yesterday!  I can't skip a project with so many avid readers, so I'll just have to reduce my release cycle to 12 hours for tomorrow.  Check in tomorrow afternoon AND night for some more (and more organized) parallaxed goodness!
+</div>
+
+<script>
+  function whereClassIs(name) {
+    return document.getElementsByClassName(name)[0]
+  }
+
+  function setHeights(className) {
+    var blocksCount = document.getElementsByClassName('block').length
+    document.body.style.height = (viewport.height*blocksCount)+'px'
+    var elements = document.getElementsByClassName(className)
+    for(var i=0; i < elements.length; i++) {
+      elements[i].style.height = viewport.height+'px'
+      elements[i].style.top = (viewport.height*i)+'px'
+    }
+  }
+
+  function onScroll() {
+    var distance = document.all? iebody.scrollTop : pageYOffset
+    var offset   = Math.round(distance * -0.1)
+    whereClassIs('background').style.top = offset+'px'
+    var elements = document.getElementsByClassName('block')
+    for(var i=0; i < elements.length; i++) {
+      console.log(viewport.height*i - distance)
+      elements[i].style.top = (viewport.height*i - distance) + 'px'
+    }
+  }
+  
+  var viewport = {
+    height: window.innerHeight, 
+    width: window.innerWidth
+  }
+
+  setHeights('block')
+  window.onscroll = onScroll
+</script>
+</body>
+</html>
