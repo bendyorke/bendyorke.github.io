@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <title>Turtles</title>
+</head>
+<style>
+.background {
+  background: url('parallax/backdrop.png');
+  width: 100%;
+  height: 4000px;
+  position: fixed;
+  left: 0;
+  top: 0;
+} 
+.block {
+  position: fixed;
+  color: white;
+  width: 50%;
+  box-sizing: border-box;
+  padding-left: 15%;
+  font-size: x-large;
+  left: 0;
+}
+</style>
+<body>
+<div class="background"></div>  
+
+<div class="you-found-me block">
+  You've found my secret page-a-day blog! Or maybe I've published it.  Who knows.  What this is is every weekday, I build a webpage.  Something I want to do that I can do in just one HTML file.  You heard me right - one, gruesomely long HTML file with a style tag and script tag included - no dependencies (that means no jQuery either).  The horrors.  But it challenges me a lot to keep my ideas simple - not necessarily easy, but simple.
+</div>
+
+<div class="what-is-parallax block">
+  This is day 2 of 3 of parallax.  What is parallax? Think Super Mario Bros - how the mountains in the back move slower than the main content.  It gives the game a false sense of depth.  That's parallax.
+</div>
+
+<div class="about-project block">
+  Today was all about refactoring my code, taking my javascript and making it object oriented.  My MVP included a lot of code held together by duct tape, as I'm not following any tutorials on parallax, or using any jquery - just pure, inline javascript (the things I do for education...). 
+</div>
+
+<div class="schedule block">
+  Yesterday, I got the basics down. Today I make the javascript pretty. I'm going to do some styling, and tomorrow (Friday) release a much pretty, more useful parallax effect.
+</div>
+
+<div class="whoops block">
+  Due to internet problems, I completely forgot to publish this yesterday!  I can't skip a project with so many avid readers, so I'll just have to reduce my release cycle to 12 hours for tomorrow.  Check in tomorrow afternoon AND night for some more (and more organized) parallaxed goodness!
+</div>
+
+<script>
+  var Page = {
+    height: window.innerHeight, 
+    width: window.innerWidth,
+    pagelets: [],
+    initialize: function() {
+      Page.findPagelets()
+      Page.position()
+      Page.eachPagelet('position')
+    },
+    findPagelets: function() {
+      var elements = document.getElementsByClassName('block')
+      for (var i=0; i < elements.length; i++) new Pagelet(elements[i], i)
+    },
+    position: function() {
+      document.body.style.height = this.height*this.pagelets.length+'px'
+    },
+    scroll: function(distance, speed) {
+      var offset = Math.round(distance * speed) 
+      Page.findClass('background').style.top=offset+'px'
+    },
+    findClass: function(name) {
+      return document.getElementsByClassName(name)[0]
+    },
+    eachPagelet: function(method, args) {
+      for (var i=0; i < this.pagelets.length; i++) this.pagelets[i][method](args)
+    }
+  }
+
+  function Pagelet(html, index) {
+    this.$html=html
+    this.index=index
+    this.name =html.classList[0]
+    Page.pagelets.push(this)
+  }
+  Pagelet.prototype.position = function() {
+    this.$html.style.height = Page.height+'px'
+    this.$html.style.top = (Page.height*this.index)+'px'
+    this.$html.style.paddingTop = Math.round(Page.height*0.35)+'px'
+  } 
+  Pagelet.prototype.scroll = function(distance) {
+    var offset = Page.height*this.index + distance
+    this.$html.style.top = offset+'px'
+  }
+
+  Page.initialize()
+  window.onscroll = function() {
+    var distance = document.all? iebody.scrollTop : pageYOffset
+    var offset   = Math.round(distance * -0.1)
+    Page.scroll(-distance, 0.1)
+    Page.eachPagelet('scroll', -distance)
+  }
+</script>
+</body>
+</html>
