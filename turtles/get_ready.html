@@ -1,0 +1,66 @@
+<!doctype>
+<html>
+<head>
+  <title>Get Ready</title>
+  <style>
+      @-webkit-keyframes spin_clockwise {
+        from  { -wekbit-transform: rotate(0deg) ;   }
+        to    { -webkit-transform: rotate(360deg);  }
+      }
+      @-webkit-keyframes spin_counterclockwise {
+        from  { -wekbit-transform: rotate(45deg) ;   }
+        to    { -webkit-transform: rotate(-405deg);  }
+      }
+      div.circle {
+        background: #fff;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 100px auto 0 auto;
+        border-radius: 100%;
+        overflow: hidden;
+        transform: translateZ(0);
+      }
+      div.circle:before,
+      div.circle:after {
+        border-radius: 100%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+        box-shadow: inset 0 200px 0 white,
+                    inset 0 -200px  0 white;
+        transition: box-shadow 0.75s;
+      }
+      div.circle:after {
+        -webkit-transform: rotate(45deg);
+      }
+      div.circle:hover:before {
+        box-shadow: inset 20px 0 0 rgba(255, 165, 0, 0.2),
+                    inset -20px 0 0 rgba(255, 165, 0, 0.2),
+                    inset 0 20px 0 rgba(255, 165, 0, 0.2),
+                    inset 0 -20px 0 rgba(255, 165, 0, 0.2);
+        -webkit-animation: spin_clockwise 10s linear infinite;
+      }
+      div.circle:hover:after {
+        box-shadow: inset 30px 0 0 rgba(255, 165, 0, 0.2),
+                    inset -30px 0 0 rgba(255, 165, 0, 0.2),
+                    inset 0 30px 0 rgba(255, 165, 0, 0.2),
+                    inset 0 -30px 0 rgba(255, 165, 0, 0.2);
+        -webkit-animation: spin_counterclockwise 13s linear infinite;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+        margin: 25px 0 0 25px;
+  }
+    </style>
+  </head>
+  <body>
+    <div class="circle">
+      <img src="../images/turtleicon.svg">
+    </div>
+  </body>
+  </html>
