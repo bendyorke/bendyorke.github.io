@@ -95,28 +95,5 @@
     The biggest concern was UX on this one.  What would be the simplest way to navigate giving this general UI - and then going from there.
   </div>
 </nav>
-
-<script>
-(function bindLinks() {
-  for (var i=document.links.length; i-->0;) {
-    var link=document.links[i]
-    if (link.className.substr(0,15)==='button-nav-icon') link.onclick=buttonNavClick
-  }
-})()
-
-function buttonNavClick(e) {
-  var srcId=e.srcElement.innerText.toLowerCase()
-  var targetElement=document.getElementById(srcId)
-  var nav=document.getElementById('nav')
-  if (srcId==="mm") clearButtonNav(); return
-  nav.style.width='250px'
-  targetElement.classList.add('button-nav-list-focus')
-}
-
-function clearButtonNav(e) {
-
-}
-
-</script>
 </body>
 </html>
