@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<title>Menu Bar</title>
+<style>
+.button-nav {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.button-nav:hover {
+  height: 350px;
+  width: 250px;
+}
+.button-nav-icon {
+  background: #eee;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.button-nav-icon:hover {
+  background: orange;
+  cursor: pointer;
+}
+.button-nav-icon:active {
+  background: green;
+}
+.button-nav-list {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: 200px;
+  height: 350px;
+  transition: all 1s ease;
+  z-index: -1;
+}
+.button-nav-ru:hover ~ #ru,
+.button-nav-js:hover ~ #js,
+.button-nav-html:hover ~ #html,
+.button-nav-css:hover ~ #css,
+.button-nav-vim:hover ~ #vim,
+.button-nav-tmux:hover ~ #tmux {
+  left: 50px;
+}
+#ru:target, #js:target, #ht:target, #cs:target, #vi:target, #tm:target {
+  left: 50px;
+}
+.button-nav-list-title {
+  height: 50px;
+  font-size: large;
+  line-height: 50px;
+  font-weight: 100;
+  padding-left: 10%;
+}
+</style>
+</head>
+<body>
+<nav id="nav" class="button-nav button-nav-dark">
+  <a class="button-nav-icon icon-main-menu">Mm</a>
+  <a class="button-nav-icon button-nav-ru">Ru</a>
+  <a class="button-nav-icon button-nav-js">Js</a>
+  <a class="button-nav-icon button-nav-html">&lt;/</a>
+  <a class="button-nav-icon button-nav-css">{}</a>
+  <a class="button-nav-icon button-nav-vim">Vi</a>
+  <a class="button-nav-icon button-nav-tmux">Tm</a>
+
+  <div id="ru" class="button-nav-list">
+    <div class="button-nav-list-title">Ruby</div>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+  <div id="js" class="button-nav-list">
+    <div class="button-nav-list-title">Javascript</div>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+  <div id="css" class="button-nav-list">
+    <div class="button-nav-list-title">CSS</div>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+  <div id="html" class="button-nav-list">
+    <div class="button-nav-list-title">HTML</div>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+  <div id="vim" class="button-nav-list">
+    <div class="button-nav-list-title">Vim</div>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+  <div id="tmux" class="button-nav-list">
+    <div class="button-nav-list-title">TMUX</div>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+(function bindLinks() {
+  for (var i=document.links.length; i-->0;) {
+    var link=document.links[i]
+    if (link.className.substr(0,15)==='button-nav-icon') link.onclick=buttonNavClick
+  }
+})()
+
+function buttonNavClick(e) {
+  var srcId=e.srcElement.innerText.toLowerCase()
+  var targetElement=document.getElementById(srcId)
+  var nav=document.getElementById('nav')
+  if (srcId==="mm") clearButtonNav(); return
+  nav.style.width='250px'
+  targetElement.classList.add('button-nav-list-focus')
+}
+
+function clearButtonNav(e) {
+
+}
+
+</script>
+</body>
+</html>
