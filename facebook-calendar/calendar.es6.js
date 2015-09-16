@@ -137,7 +137,7 @@ function layOutDay(events = []) {
 
 
 if (window.location.search.substr(1)) {
-  var randomTimes = Array(20).fill().map(() => {
+  var randomTimes = Array(parseInt(window.location.search.substr(1))).fill().map(() => {
     let start = Math.trunc(Math.random() * 620)
     let length = Math.trunc(Math.random() * 51) + 50
     return { start: start, end: start + length }
